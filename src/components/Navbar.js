@@ -3,9 +3,9 @@ import './Navbar.css';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'Menu', href: '#menu' },
-  { label: 'Why Us', href: '#why' },
-  { label: 'Reviews', href: '#reviews' },
+  { label: 'Quote', href: '#quote' },
+  { label: 'Restaurants', href: '#restaurants' },
+  { label: 'Foods', href: '#foods' },
   { label: 'Contact', href: '#contact' },
 ];
 
