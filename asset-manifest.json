@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Geek-Food/static/css/main.43a34e7a.css",
+    "main.js": "/Geek-Food/static/js/main.ec614407.js",
+    "index.html": "/Geek-Food/index.html",
+    "main.43a34e7a.css.map": "/Geek-Food/static/css/main.43a34e7a.css.map",
+    "main.ec614407.js.map": "/Geek-Food/static/js/main.ec614407.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.43a34e7a.css",
+    "static/js/main.ec614407.js"
+  ]
+}
