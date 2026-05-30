@@ -1,24 +1,39 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import FeaturedMenu from './components/FeaturedMenu';
 import WhyGeekFood from './components/WhyGeekFood';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
+import QuotePage from './components/QuotePage';
 import './App.css';
+
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <FeaturedMenu />
+      <WhyGeekFood />
+      <Testimonials />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <main>
-        <Hero />
-        <FeaturedMenu />
-        <WhyGeekFood />
-        <Testimonials />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/quote" element={<QuotePage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

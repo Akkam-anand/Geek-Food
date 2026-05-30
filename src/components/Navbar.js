@@ -1,80 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'Quote', href: '#quote' },
-  { label: 'Restaurants', href: '#restaurants' },
-  { label: 'Foods', href: '#foods' },
-  { label: 'Contact', href: '#contact' },
-];
-
 function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-      <div className="navbar__container">
-        {/* Logo */}
-        <a href="#home" className="navbar__logo">
-          <span className="navbar__logo-icon">⚡</span>
-          <span className="navbar__logo-text">
-            Geek<span className="navbar__logo-accent">Food</span>
-          </span>
-        </a>
+    <nav className="navbar">
+      <div className="navbar-inner">
 
-        {/* Desktop Nav Links */}
-        <nav className="navbar__links">
-          {navLinks.map((link) => (
-            <a key={link.label} href={link.href} className="navbar__link">
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <Link to="/" className="logo">
+          <div className="logo-icon">&#9654;</div>
+          <span className="logo-text">GeekFoods</span>
+        </Link>
 
-        {/* CTA */}
-        <div className="navbar__actions">
-          <a href="#menu" className="btn btn--primary">
-            Order Now
-          </a>
-        </div>
+        <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          <li><Link to="/" className="nav-link active" onClick={() => setMenuOpen(false)}>Home</Link></li>
+          <li><Link to="/quote" className="nav-link" onClick={() => setMenuOpen(false)}>Quote</Link></li>
+          <li><Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>Resturants</Link></li>
+          <li><Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>Foods</Link></li>
+          <li><Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</Link></li>
+        </ul>
 
-        {/* Hamburger */}
-        <button
-          className={`navbar__hamburger ${menuOpen ? 'open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
+        <button className="get-started-btn">Get started</button>
+
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           <span></span>
           <span></span>
           <span></span>
         </button>
-      </div>
 
-      {/* Mobile Menu */}
-      <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
-        {navLinks.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className="navbar__mobile-link"
-            onClick={() => setMenuOpen(false)}
-          >
-            {link.label}
-          </a>
-        ))}
-        <a href="#menu" className="btn btn--primary navbar__mobile-cta">
-          Order Now
-        </a>
       </div>
-    </header>
+    </nav>
   );
 }
 

@@ -1,19 +1,28 @@
-# GeekFood 🍔
+# GeekFoods 🍔
 
-A homepage for GeekFood, a food delivery website with a tech/geek theme. Built with ReactJS.
+A multi-page website for GeekFood built with ReactJS.
 
-## What's on the page
+## Pages
 
-- Navbar with mobile menu
-- Hero section
-- Food menu with category filters
-- Why GeekFood section
-- Customer reviews
-- Footer with newsletter signup
+- **Home** - Landing page with hero section
+- **Quote** - Inspiring food quotes page
+
+## What's on the home page
+
+- Navbar with links to all pages
+- Hero section with background image and CTA buttons
+
+## Quote page
+
+- Displays food quotes from famous people
+- Uses JSON data to store all the quotes
+- Uses props to pass quote and author to each card
+- Uses map() to loop through and display all quotes
 
 ## Tech used
 
 - ReactJS
+- React Router DOM (for page navigation)
 - CSS (one file per component)
 
 ## How to run
@@ -25,6 +34,11 @@ npm start
 
 Opens at http://localhost:3000
 
+## Pages routes
+
+- `/` - Home page
+- `/quote` - Quote page
+
 ## Folder structure
 
 ```
@@ -32,14 +46,9 @@ src/
   components/
     Navbar.js
     Hero.js
-    FeaturedMenu.js
-    WhyGeekFood.js
-    Testimonials.js
-    Footer.js
+    QuotePage.js
+    QuoteCard.js
+    quotes.json
   App.js
   index.js
 ```
-
-
-
-
